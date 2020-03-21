@@ -59,4 +59,14 @@ class ResetPasswordController extends Controller
     {
         return Nova::path();
     }
+
+    protected function guard()
+    {
+        return Auth::guard(config('nova.guard'));
+    }
+
+    public function broker()
+    {
+        return Password::broker('admins');
+    }
 }
