@@ -58,4 +58,9 @@ class ForgotPasswordController extends Controller
     {
         return Auth::guard(config('nova.guard'));
     }
+
+    public function broker()
+    {
+        return Password::broker('admins');
+    }
 }
