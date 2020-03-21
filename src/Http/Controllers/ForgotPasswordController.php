@@ -32,8 +32,6 @@ class ForgotPasswordController extends Controller
      */
     public function __construct()
     {
-        Config::set("auth. defaults.passwords","admins");
-        
         $this->middleware('guest');
 
         ResetPassword::toMailUsing(function ($notifiable, $token) {
@@ -53,5 +51,10 @@ class ForgotPasswordController extends Controller
     public function showLinkRequestForm()
     {
         return view('nova::auth.passwords.email');
+    }
+
+    public function broker()
+    {
+        return \Password::broker(config('nova.auth.defaults.passwords'));
     }
 }
