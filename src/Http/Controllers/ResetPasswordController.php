@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Password;
 
 class ResetPasswordController extends Controller
 {
