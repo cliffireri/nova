@@ -56,6 +56,6 @@ class ForgotPasswordController extends Controller
 
     protected function guard()
     {
-        return Auth::guard(Config::get('nova.guard'));
+        return Auth::guard(config('nova.guard'));
     }
 }
