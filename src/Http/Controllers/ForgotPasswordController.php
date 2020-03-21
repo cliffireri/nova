@@ -53,8 +53,8 @@ class ForgotPasswordController extends Controller
         return view('nova::auth.passwords.email');
     }
 
-    public function broker()
+    protected function guard()
     {
-        return \Password::broker(config('nova.auth.defaults.passwords'));
+        return Auth::guard(Config::get('nova.guard'));
     }
 }
