@@ -81,15 +81,13 @@ class Relatable implements Rule
         if ($inverseRelation && $this->request->resourceId) {
             $modelBeingUpdated = $this->request->findModelOrFail();
 
-            if ($modelBeingUpdated->{$attribute}->getKey() == $value) {
+            $modelValueToCheck = $modelBeingUpdated->{$attribute} ? $modelBeingUpdated->{$attribute}->getKey() : null;
+            
+            if ($modelValueToCheck == $value) {
                 return false;
             }
         }
-
-        return $inverseRelation &&
-               $model->{$inverseRelation->attribute}()->count() > 0;
     }
-
     /**
      * Authorize that the user is allowed to relate this resource.
      *
